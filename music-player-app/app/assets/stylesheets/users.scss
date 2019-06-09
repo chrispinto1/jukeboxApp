@@ -1,0 +1,50 @@
+// Place all the styles related to the User controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.html,body{
+  height: 100%;
+  width:100%;
+}
+
+
+
+.menu{
+  margin: 0 !important;
+  margin-bottom: 1% !important;
+
+}
+
+.ui.grid>.row{
+  padding-bottom: 0 !important;
+  margin-bottom: 0% !important;
+}
+
+img{
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.compact{
+  margin-right: 2% !important;
+  margin-top: 1% !important;
+}
+
+.logo{
+  // padding-top: 70px;
+  margin-top: 1.7%;
+  height:65%;
+  width: 100%;
+}
+
+.logopic{
+  max-height: 100%;
+}
+
+.ui.menu .item:before{
+  background: none !important;
+}
+
+.quote{
+  text-align: center;
+}

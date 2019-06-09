@@ -1,0 +1,42 @@
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+
+<div class="ui grid">
+  <div class= "ui menu three column row">
+    <div class="column"></div>
+    <div class="header item column">
+      <img src ="/assets/circle.jpg">
+     </div>
+   <div class="ui compact menu right">
+   <div class="ui simple dropdown item">
+     Menu
+     <i class="dropdown icon"></i>
+     <div class="menu">
+       <div class="item">
+         <%=link_to "Login", "/users/login"%>
+       </div>
+       <div class="item">
+         <%=link_to "Sign Up", new_user_path%>
+       </div>
+       <div class="item">Contact Us</div>
+     </div>
+   </div>
+ </div>
+  </div>
+</div>
+
+
+<h1 class="signUp">Login</h1>
+
+<div class="ui form">
+<%=form_tag do %>
+<div class="field">
+  <label>UserName</label>
+  <%=text_field_tag(:name)%>
+</div>
+<div class="field">
+  <label>Password</label>
+  <%=text_field_tag(:password)%>
+</div>
+<button class="ui button" type="submit"><%submit_tag link_to "Login", user_path%>Login</button>
+<%end%>
+</div>
