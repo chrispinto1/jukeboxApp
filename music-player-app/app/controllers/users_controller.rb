@@ -6,6 +6,16 @@ class UsersController < ApplicationController
 
   def login
     # @user = User.find(params[:id])
+    @user = User.all
+  end
+
+  def loginprocess
+    user = User.all.select {|user| user.name == params[:name]}[0]
+    if user.password == params[:password]
+      redirect_to user
+    else
+      redirect_to "/users/login"
+    end
   end
 
   def show
