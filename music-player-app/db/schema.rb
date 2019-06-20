@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_12_142232) do
+ActiveRecord::Schema.define(version: 2019_06_15_200710) do
+
+  create_table "column_names", force: :cascade do |t|
+  end
 
   create_table "playlists", force: :cascade do |t|
     t.integer "song_id"
@@ -28,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_06_12_142232) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "song_id"

@@ -1,27 +1,3 @@
-<div class="ui grid">
-  <div class= "ui menu three column row">
-    <div class="column"></div>
-    <div class="header item column">
-      <img src ="/assets/circle.jpg">
-     </div>
-   <div class="ui compact menu right">
-   <div class="ui simple dropdown item">
-     Menu
-     <i class="dropdown icon"></i>
-     <div class="menu">
-       <div class="item">
-         <%=link_to "View Songs", "/users/login"%>
-       </div>
-       <div class="item">
-         <%=link_to "Log_out", new_user_path%>
-       </div>
-       <div class="item"><%=link_to "Contact Us", "/users"%></div>
-     </div>
-   </div>
- </div>
-  </div>
-</div>
-
 <h1>Welcome <%=@user.name%>!</h1>
   <div class="left_table">
     <h1><u>User Options</u></h1>
@@ -32,7 +8,7 @@
   <a class="item">
     Settings
   </a>
-  <a class="item">
+  <a href="/songs" class="item">
     Song Database
   </a>
 </div>
@@ -47,7 +23,7 @@
 
       <%song.map do |song|%>
       <%= song.title%>
-      <button class = "ui button">Remove song</button>
+      <button class = "ui mini red button">Remove song</button>
       <br>
       <%end%>
     </div>

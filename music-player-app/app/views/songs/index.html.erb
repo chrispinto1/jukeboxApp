@@ -1,0 +1,42 @@
+<div class="left_table">
+  <h1><u>User Options</u></h1>
+  <div class="ui secondary vertical menu">
+    <a class="item">
+      Account
+      </a>
+    <a class="item">
+      Settings
+    </a>
+    <a href="/songs" class="item">
+      Song Database
+    </a>
+  </div>
+</div>
+
+<div class="right_table">
+  <h1> <u>List of all Songs</u></h1>
+
+  <h3>Search through songs by Song Title or Artist</h3>
+
+  <% if flash[:message] %>
+    <div class="message"><%= flash[:message] %></div>
+  <% end %>
+
+
+  <%= form_tag "/songs", :method => 'get' do %>
+  <div class= "ui small icon input"> <%= text_field_tag "search" %></div>
+  <%= submit_tag "Search", class: "ui mini button search" %>
+  <%end%>
+
+    <%=form_tag do %>
+    <% @songs.each do |s| %>
+      <li>
+        <%= s.title %>
+        By <%= s.artist %>
+        <%=button_to "Add song to playlist", "/songs" , :method=>:post , params: {:song_id => s.id}, class: "button"%>
+      </li>
+      <br>
+    <%end%>
+
+  <%end%>
+</div>

@@ -1,47 +1,24 @@
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
-
-<div class="ui grid">
-  <div class= "ui menu three column row">
-    <div class="column"></div>
-    <div class="header item column">
-      <img src ="/assets/circle.jpg">
-     </div>
-   <div class="ui compact menu right">
-   <div class="ui simple dropdown item">
-     Menu
-     <i class="dropdown icon"></i>
-     <div class="menu">
-       <div class="item">
-         <%=link_to "Login", "/users/login"%>
-       </div>
-       <div class="item">
-         <%=link_to "Sign Up", new_user_path%>
-       </div>
-       <div class="item">Contact Us</div>
-     </div>
-   </div>
- </div>
-  </div>
-</div>
+<div class = "sign-up-form">
 
 <h1 class="signUp">Sign Up!</h1>
 
 
 
 <div class="ui form">
-  <%=form_tag do%>
+  <%=form_for @user do |f|%>
   <div class="field">
     <label>UserName</label>
-    <%=text_field_tag(:name)%>
+    <%=f.text_field :name%>
   </div>
   <div class="field">
     <label>Email</label>
-    <%=text_field_tag(:email)%>
+    <%=f.text_field :email%>
   </div>
   <div class="field">
     <label>Password</label>
-    <%=text_field_tag(:password)%>
+    <%=f.password_field :password%>
   </div>
-  <button class="ui button" type="submit"><%submit_tag %>Submit</button>
+  <%=f.submit "Submit",  class: "ui yellow button" %>
   <%end%>
+</div>
 </div>

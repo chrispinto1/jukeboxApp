@@ -13,3 +13,39 @@
  *= require_tree .
  *= require_self
  */
+
+
+.ui.menu:last-child {
+  background-color: #FFD700;
+}
+
+.menu{
+  margin: 0 !important;
+  margin-bottom: 1% !important;
+
+}
+
+.ui.grid>.row{
+  padding-bottom: 0 !important;
+  margin-bottom: 0% !important;
+}
+
+img{
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.compact{
+  margin-right: 2% !important;
+  margin-top: 1% !important;
+}
+
+.ui.menu .item:before{
+  background: none !important;
+}
+
+.header-icon{
+  width: 7%;
+  height: 7%;
+}

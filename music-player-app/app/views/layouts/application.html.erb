@@ -9,9 +9,65 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/users.css">
+
+    <% if logged_in? %>
+    <div class="ui grid">
+      <div class= "ui menu three column row">
+        <div class="column"></div>
+        <div class="header item column">
+          <img src ="/assets/jukebox.png">
+         </div>
+       <div class="ui compact menu right">
+       <div class="ui simple dropdown item">
+         Menu
+         <i class="dropdown icon"></i>
+         <div class="menu">
+           <div class="item">
+             <%=link_to "View Songs", "/dashboard"%>
+           </div>
+           <div class="item">
+             <%=link_to "Log_out", login_path%>
+           </div>
+           <div class="item"><%=link_to "Contact Us", "/users"%></div>
+         </div>
+       </div>
+     </div>
+      </div>
+    </div>
+    <%else%>
+    <div class="ui grid">
+      <div class= "ui menu three column row">
+        <div class="column"></div>
+        <div class="header item column">
+          <a href="/users"><img class="header-icon"  src ="/assets/jukebox.png"></a>
+         </div>
+       <div class="ui compact menu right">
+        <div class="nontransparent">
+       <div class="ui simple dropdown item">
+         Menu
+         <i class="dropdown icon"></i>
+         <div class="menu">
+           <div class="item">
+             <%=link_to "Login", "/login"%>
+           </div>
+           <div class="item">
+             <%=link_to "Sign Up", "/signup"%>
+           </div>
+           <div class="item">Contact Us</div>
+         </div>
+       </div>
+       </div>
+     </div>
+      </div>
+    </div>
+    <%end%>
+
+
+
   </head>
 
   <body>
+
     <%= yield %>
   </body>
 </html>

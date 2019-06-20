@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="/assets/login.scss">
+<div class = "bodyOfForm">
+<h1 class="login">Login</h1>
+
+<div class="ui form">
+<%=form_tag "/dashboard" , :method => 'get' do %>
+<div class="field">
+  <label>UserName</label>
+  <%=text_field_tag(:name)%>
+</div>
+<div class="field">
+  <label>Password</label>
+  <%=password_field_tag(:password)%>
+</div>
+<%=submit_tag "Login", class: "ui yellow button" %>
+<%end%>
+</div>
+</div>
