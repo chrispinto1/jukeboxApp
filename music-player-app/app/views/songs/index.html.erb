@@ -27,16 +27,14 @@
   <div class= "ui small icon input"> <%= text_field_tag "search" %></div>
   <%= submit_tag "Search", class: "ui mini button search" %>
   <%end%>
-
     <%=form_tag do %>
     <% @songs.each do |s| %>
       <li>
         <%= s.title %>
         By <%= s.artist %>
-        <%=button_to "Add song to playlist", "/songs" , :method=>:post , params: {:song_id => s.id}, class: "button"%>
       </li>
+      <div class = "submit_button"><%=button_to "Add song to playlist", "/songs" , :method=>:post , params: {:song_id => s.id}, class: "ui green button"%></div>
       <br>
     <%end%>
-
   <%end%>
 </div>

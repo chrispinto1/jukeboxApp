@@ -12,12 +12,23 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
+    playlist = Playlist.create(user_id: @user.id)
+    @user.playlist_id = playlist.id
+    @user.save
     session[:user_id] = @user.id
     redirect_to "/dashboard"
   end
 
   def show
     @user = User.find(session[:user_id])
+  end
+
+  def settings
+
+  end
+
+  def contact
+
   end
 
 

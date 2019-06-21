@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :playlists
+  belongs_to :playlist, required: false
   has_many :songs, through: :playlists
   validates :name, uniqueness: true
   has_secure_password

@@ -19,8 +19,15 @@ class SongsController < ApplicationController
   def putsong
     song = Song.find(params[:song_id])
     user = User.find(session[:user_id])
-    user.songs << song
+    user.playlist.songs += [song]
+    user.save
     redirect_to "/songs"
+  end
+
+  def remove
+    user = User.find(session[:user_id])
+    user.playlist.songs.delete(params[:song_id])
+    redirect_to "/dashboard"
   end
 
 end

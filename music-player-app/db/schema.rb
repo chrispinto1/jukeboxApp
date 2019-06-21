@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_200710) do
+ActiveRecord::Schema.define(version: 2019_06_20_232142) do
 
   create_table "column_names", force: :cascade do |t|
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "last4"
+    t.decimal "amount"
+    t.boolean "success"
+    t.string "authorization_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "playlists", force: :cascade do |t|
@@ -26,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_06_15_200710) do
     t.string "title"
     t.string "artist"
     t.integer "user_id"
+    t.integer "playlist_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_06_15_200710) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "song_id"
+    t.integer "playlist_id"
   end
 
 end

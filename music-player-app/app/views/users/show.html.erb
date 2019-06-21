@@ -2,28 +2,30 @@
   <div class="left_table">
     <h1><u>User Options</u></h1>
     <div class="ui secondary vertical menu">
-  <a class="item">
-    Account
-  </a>
-  <a class="item">
-    Settings
-  </a>
-  <a href="/songs" class="item">
-    Song Database
-  </a>
-</div>
+      <a class="item">
+        Account
+      </a>
+      <a href="/settings" class="item">
+        Settings
+      </a>
+      <a href="/songs" class="item">
+        Song Database
+      </a>
+    </div>
   </div>
+
+
   <div class="right_table">
     <h1><u>List of all songs in your playlist</u></h1>
 
     <div class = "song">
-      <%song = @user.songs.select do |s|%>
+      <%song = @user.playlist.songs.map do |s|%>
       <%  s.id %>
       <% end %>
 
       <%song.map do |song|%>
-      <%= song.title%>
-      <button class = "ui mini red button">Remove song</button>
+      <%= Song.find(song).title%>
+      <div class = "remove_button"><%=button_to "Remove Song", "/dashboard" , :method=>:post , params: {:song_id => song}, class: "ui red button"%></div>
       <br>
       <%end%>
     </div>

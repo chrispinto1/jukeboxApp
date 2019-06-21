@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/users.css">
-
+    <%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" %>
     <% if logged_in? %>
     <div class="ui grid">
       <div class= "ui menu three column row">
@@ -26,9 +26,9 @@
              <%=link_to "View Songs", "/dashboard"%>
            </div>
            <div class="item">
-             <%=link_to "Log_out", login_path%>
+             <%=button_to "Log out", {:controller => :sessions, action: "destroy", id: session[:user_id]}, :method => "delete"%>
            </div>
-           <div class="item"><%=link_to "Contact Us", "/users"%></div>
+           <div class="item"><%=link_to "Contact Us", "/contact"%></div>
          </div>
        </div>
      </div>
@@ -39,7 +39,7 @@
       <div class= "ui menu three column row">
         <div class="column"></div>
         <div class="header item column">
-          <a href="/users"><img class="header-icon"  src ="/assets/jukebox.png"></a>
+          <a href="/"><img class="header-icon"  src ="/assets/jukebox.png"></a>
          </div>
        <div class="ui compact menu right">
         <div class="nontransparent">
@@ -53,7 +53,9 @@
            <div class="item">
              <%=link_to "Sign Up", "/signup"%>
            </div>
-           <div class="item">Contact Us</div>
+           <div class="item">
+             <%=link_to "Contact Us", "/contact"%>
+           </div>
          </div>
        </div>
        </div>
