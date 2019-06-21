@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authorized?, only: [:show]
 
   def index
@@ -12,9 +11,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    playlist = Playlist.create(user_id: @user.id)
-    @user.playlist_id = playlist.id
-    @user.save
+    @user.addPlaylistToUser(@user)
     session[:user_id] = @user.id
     redirect_to "/dashboard"
   end
@@ -28,25 +25,13 @@ class UsersController < ApplicationController
 
   def update
     user = User.find(session[:user_id])
-    if params["/settings"][:name] != ""
-      user.update(name: params["/settings"][:name])
-    end
-    if params["/settings"][:email] != ""
-      user.update(email: params["/settings"][:email])
-    end
-    if params["/settings"][:password] != ""
-      user.update(password: params["/settings"][:password])
-    end
-    user.save
+    user.updateUser(user, params)
     redirect_to "/settings"
   end
 
   def contact
 
   end
-
-
-
 
   private
 

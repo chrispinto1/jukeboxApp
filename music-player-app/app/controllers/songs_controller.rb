@@ -18,9 +18,7 @@ class SongsController < ApplicationController
 
   def putsong
     song = Song.find(params[:song_id])
-    user = User.find(session[:user_id])
-    user.playlist.songs += [song]
-    user.save
+    song.addToPlaylist(session[:user_id],song)
     redirect_to "/songs"
   end
 
