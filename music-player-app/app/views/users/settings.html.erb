@@ -1,1 +1,15 @@
-settings
+  <div class="right_table">
+    <h1>Change Account Settings</h1>
+    <%=form_for "/settings" , :method => 'patch' do |f|%>
+      <%=f.label "Username"%>
+      <%=f.text_field :name%>
+      <br>
+      <%=f.label "Email"%>
+      <%=f.text_field :email%>
+      <br>
+      <%=f.label "Password"%>
+      <%=f.password_field :password%>
+      <br>
+      <%=f.submit "Update", class: "ui green button"%>
+    <%end%>
+  </div>

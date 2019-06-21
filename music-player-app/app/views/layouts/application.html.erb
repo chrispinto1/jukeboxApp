@@ -17,55 +17,61 @@
         <div class="header item column">
           <img src ="/assets/jukebox.png">
          </div>
-       <div class="ui compact menu right">
-       <div class="ui simple dropdown item">
-         Menu
-         <i class="dropdown icon"></i>
-         <div class="menu">
-           <div class="item">
-             <%=link_to "View Songs", "/dashboard"%>
-           </div>
-           <div class="item">
-             <%=button_to "Log out", {:controller => :sessions, action: "destroy", id: session[:user_id]}, :method => "delete"%>
-           </div>
-           <div class="item"><%=link_to "Contact Us", "/contact"%></div>
-         </div>
-       </div>
-     </div>
       </div>
     </div>
+
+    <%if @user%>
+    <h1> <%=@user.name.capitalize%>'s Playlist!</h1>
+    <%end%>
+
+    <div class="left_table">
+      <h1><u>User Options</u></h1>
+      <div class="ui secondary vertical menu">
+        <a href="/dashboard" class="item">
+          Playlist
+        </a>
+        <a href="/settings"class="item">
+          Settings
+        </a>
+        <a href="/songs" class="item">
+          Song Database
+        </a>
+        <a class="item">
+          <%=button_to "Log out", {:controller => :sessions, action: "destroy", id: session[:user_id]}, :method => "delete", class: "ui red button"%>
+        </a>
+      </div>
+    </div>
+
     <%else%>
+
     <div class="ui grid">
       <div class= "ui menu three column row">
         <div class="column"></div>
-        <div class="header item column">
-          <a href="/"><img class="header-icon"  src ="/assets/jukebox.png"></a>
-         </div>
-       <div class="ui compact menu right">
-        <div class="nontransparent">
-       <div class="ui simple dropdown item">
-         Menu
-         <i class="dropdown icon"></i>
-         <div class="menu">
-           <div class="item">
-             <%=link_to "Login", "/login"%>
-           </div>
-           <div class="item">
-             <%=link_to "Sign Up", "/signup"%>
-           </div>
-           <div class="item">
-             <%=link_to "Contact Us", "/contact"%>
-           </div>
-         </div>
-       </div>
-       </div>
-     </div>
+          <div class="header item column">
+            <a href="/"><img class="header-icon"  src ="/assets/jukebox.png"></a>
+          </div>
+          <div class="ui compact menu right">
+            <div class="nontransparent">
+              <div class="ui simple dropdown item">
+                Menu
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                  <div class="item">
+                    <%=link_to "Login", "/login"%>
+                  </div>
+                  <div class="item">
+                    <%=link_to "Sign Up", "/signup"%>
+                  </div>
+                  <div class="item">
+                    <%=link_to "Contact Us", "/contact"%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <%end%>
-
-
-
+      <%end%>
   </head>
 
   <body>

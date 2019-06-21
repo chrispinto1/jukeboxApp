@@ -24,7 +24,21 @@ class UsersController < ApplicationController
   end
 
   def settings
+  end
 
+  def update
+    user = User.find(session[:user_id])
+    if params["/settings"][:name] != ""
+      user.update(name: params["/settings"][:name])
+    end
+    if params["/settings"][:email] != ""
+      user.update(email: params["/settings"][:email])
+    end
+    if params["/settings"][:password] != ""
+      user.update(password: params["/settings"][:password])
+    end
+    user.save
+    redirect_to "/settings"
   end
 
   def contact

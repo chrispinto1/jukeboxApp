@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   post "/login", to: "sessions#create"
   post "/songs", to: "songs#putsong"
+  patch "/settings", to: "users#update"
   delete "/logout", to: "sessions#destroy"
 
   # resources :payments, only: [:index, :new, :create]

@@ -2,23 +2,23 @@
 
 <h1 class="signUp">Sign Up!</h1>
 
+  <div class="ui form">
 
-
-<div class="ui form">
-  <%=form_for @user do |f|%>
-  <div class="field">
-    <label>UserName</label>
-    <%=f.text_field :name%>
+    <%=form_for @user do |f|%>
+      <div class="field">
+        <label>UserName</label>
+        <%=f.text_field :name%>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <%=f.text_field :email%>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <%=f.password_field :password%>
+      </div>
+      <%=f.submit "Submit",  class: "ui yellow button" %>
+      <%end%>
+      
   </div>
-  <div class="field">
-    <label>Email</label>
-    <%=f.text_field :email%>
-  </div>
-  <div class="field">
-    <label>Password</label>
-    <%=f.password_field :password%>
-  </div>
-  <%=f.submit "Submit",  class: "ui yellow button" %>
-  <%end%>
-</div>
 </div>
